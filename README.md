@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <title>Portfolio de Fotografia for Concept Collective</title>
