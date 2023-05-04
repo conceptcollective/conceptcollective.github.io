@@ -44,18 +44,16 @@
       color: #999;
     }
 
-    #content {
+     #content {
       margin: 20px;
     }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      margin: 5px 0;
+      margin: 20px 0;
     }
-
     .gallery img {
       margin: 10px;
       max-width: 300px;
