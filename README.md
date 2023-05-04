@@ -53,7 +53,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      margin: 20px 0;
+      margin: 5px 0;
     }
 
     .gallery img {
@@ -86,7 +86,7 @@
         <a href="https://olhardelobo.wixsite.com/concept">Cobertura de Eventos</a> • 
         <a href="https://www.behance.net/conceptphotos">Behance</a> •
         <a href="https://calendly.com/conceptcollective">Agende Seu Atendimento</a> • 
-   
+         </div>
     <div id="content">
       <div class="gallery">
         <img src="https://scontent.fsdu1-1.fna.fbcdn.net/v/t39.30808-6/281900338_5530961466949070_493765599148881667_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a26aad&_nc_ohc=gCWT-OFwPkAAX9LtChx&_nc_ht=scontent.fsdu1-1.fna&oh=00_AfAM94vb9Jok8GELe1xvL7okHapaAtzXoB-rsr4bGNhpCA&oe=645538D7" alt="Foto 1">
@@ -107,5 +107,3 @@
     <div class="footer">
       <p>Todos os direitos reservados &copy; 2023</p>
     </div>
-  </body>
-  </html>
