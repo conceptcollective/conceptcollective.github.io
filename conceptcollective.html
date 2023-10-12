@@ -91,11 +91,11 @@
       <div class="gallery">
         <img src="P1110511.JPG" alt="Foto 1">
         <img src="P1110574-3.JPG" alt="Foto 2">
-        <img src="_CRG6361.jpg" alt="Foto 3">
-        <img src="_CRG6492.jpg" alt="Foto 4">
-        <img src="_CRG6857.JPG" alt="Foto 5">
-        <img src="_CRG7028-3.JPG" alt="Foto 6">
-        <img src="_CRG7073-2.JPG" alt="Foto 7">
+        <img src="CRG6361.jpg" alt="Foto 3">
+        <img src="CRG6492.jpg" alt="Foto 4">
+        <img src="CRG6857.JPG" alt="Foto 5">
+        <img src="CRG7028-3.JPG" alt="Foto 6">
+        <img src="CRG7073-2.JPG" alt="Foto 7">
         <img src="P1190886.jpg" alt="Foto 8">
         
   
