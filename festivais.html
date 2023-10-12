@@ -1,0 +1,142 @@
+<html>
+<head>
+  <title>Portfolio de Fotografia for Concept Collective</title>
+  <style> .gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery a {
+  position: relative;
+  display: block;
+  margin: 10px;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+.gallery a::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background-color: rgba(255,255,255,0.5);
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.gallery a:hover::before {
+  opacity: 1;
+}
+
+    body {
+      background: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    #header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://fly.linkcdn.to/upload/2022052402/165335917781369617.jpeg');
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #menu {
+      background-image: linear-gradient(180deg, #000, #333);
+      padding: 10px;
+    }
+
+    #menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #menu li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    #menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.2s ease-in-out;
+    }
+
+    #menu li a:hover {
+      color: #999;
+    }
+
+     #content {
+      margin: 20px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+    }
+    .gallery img {
+      margin: 10px;
+      max-width: 300px;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>Portfolio de Fotografia de Concept Collective</h1>
+  </div>
+  <div id="menu">
+    <ul>
+      <li><a href="https://www.instagram.com/conceptcollective" title="Instagram">Instagram</a> • 
+        <a href="https://www.facebook.com/conceptcontents">Facebook</a> • 
+        <a href="https://olhardelobo.wixsite.com/concept">Portfolio</a> • 
+        <a href="https://www.behance.net/conceptphotos">Behance</a> •
+        <a href="https://calendly.com/conceptcollective">Agende Seu Atendimento</a> • 
+        <a href="https://linkfly.to/conceptcollective">Contato</a> • 
+        
+    
+    <div id="content">
+      <div class="gallery">
+      <a href="foto1.html">
+        <img src="7" alt="Foto 4">
+         <figcaption>Legenda da Foto 1</figcaption>
+          </a>
+          <a href="foto2.html">
+        <img src="8" alt="Foto 5">
+          <figcaption>Legenda da Foto 2</figcaption>
+          </a>
+          <a href="foto2.html">
+        <img src="9" alt="Foto 6">
+        <figcaption>Legenda da Foto 3</figcaption>
+  
+      </div>
+      <div class="caption">
+        <p>Instagram @conceptcollective</p>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Todos os direitos reservados &copy; 2023</p>
+    </div>
+</html>
