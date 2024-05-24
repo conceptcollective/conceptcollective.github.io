@@ -82,7 +82,7 @@
       <li><a href="https://www.instagram.com/conceptcollective" title="Instagram">Instagram</a> • 
         <a href="https://www.facebook.com/conceptcontents">Facebook</a> • 
         <a href="https://olhardelobo.wixsite.com/concept">Portfolio</a> • 
-        <a href="https://www.behance.net/conceptphotos">Behance</a> •
+        <a href="servico.html">Serviços</a> •
         <a href="https://calendly.com/conceptcollective">Agende Seu Atendimento</a> • 
         <a href="https://linkfly.to/conceptcollective">Contato</a> • 
         <a href="festivais.html">Festivais Fotografados</a> • 
