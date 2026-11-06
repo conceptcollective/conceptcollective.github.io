@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept Collective - Ensaios Fotográficos | Promoção 50% OFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0a0c;
+    --bg-soft: #121216;
+    --surface: rgba(255,255,255,0.04);
+    --surface-hover: rgba(255,255,255,0.07);
+    --surface-elevated: #1a1a1f;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.16);
+    --text: #f5f5f7;
+    --text-muted: #a1a1aa;
+    --accent: #c9a96a;
+    --accent-2: #e8d5a8;
+    --accent-glow: rgba(201,169,106,0.35);
+    --promo: #ef4444;
+    --success: #4ade80;
+    --radius: 20px;
+    --radius-sm: 14px;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    padding-bottom: 130px;
+  }
+
+  /* ---- background ambient ---- */
+  .ambient{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 0%, rgba(201,169,106,0.10), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 100%, rgba(201,169,106,0.06), transparent 60%);
+  }
+  .ambient::after{
+    content:'';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: .5;
+  }
+
+  /* ---- container ---- */
+  .wrap{
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---- NAV / HEADER ---- */
+  header.nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    background: rgba(10,10,12,0.65);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 74px;
+    gap: 20px;
+  }
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  .brand img{
+    height: 44px;
+    width: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+  .brand-fallback{
+    height: 44px;
+    width: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), #8a6f3a);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    color: #0a0a0c;
+  }
+  .brand-name{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .brand-name span{color: var(--accent);}
+
+  .nav-actions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-socials{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .nav-socials a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    color: var(--text-muted);
+    transition: .25s ease;
+    text-decoration: none;
+  }
+  .nav-socials a:hover{
+    color: var(--accent-2);
+    background: var(--surface-hover);
+    transform: translateY(-1px);
+  }
+  .nav-socials svg{width:19px;height:19px;fill:currentColor;}
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    padding: 11px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: .28s cubic-bezier(.4,0,.2,1);
+    white-space: nowrap;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    color: #0a0a0c;
+    box-shadow: 0 6px 24px -6px var(--accent-glow);
+  }
+  .btn-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px -8px var(--accent-glow);
+    filter: brightness(1.08);
+  }
+  .btn-ghost{
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-ghost:hover{
+    background: var(--surface-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+  .btn svg{width:17px;height:17px;fill:currentColor;}
+
+  .nav-cta-desktop{display:inline-flex;}
+  .nav-socials-desktop{display:flex;}
+  .menu-toggle{
+    display: none;
+    width: 42px;height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .menu-toggle svg{width:20px;height:20px;fill:currentColor;}
+
+  .mobile-menu{
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,12,0.96);
+    backdrop-filter: blur(20px);
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    transition: .2s;
+  }
+  .mobile-menu a:hover, .mobile-menu a:focus{
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+  .mobile-menu a svg{width:18px;height:18px;fill:currentColor;opacity:.8;}
+  .mobile-menu .mm-cta{
+    margin-top: 6px;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    color: #0a0a0c;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  /* ---- PROMO BANNER ---- */
+  .promo-banner{
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #ef4444, #dc2626, #ef4444);
+    background-size: 200% 100%;
+    color: white;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 9px 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    animation: pulseBg 3s infinite;
+  }
+  @keyframes pulseBg {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ---- HERO ---- */
+  .hero{
+    padding: 72px 0 40px;
+    text-align: center;
+    position: relative;
+  }
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    padding: 7px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(201,169,106,0.25);
+    background: rgba(201,169,106,0.06);
+    margin-bottom: 26px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:6px;height:6px;
+    border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .hero h1{
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+    max-width: 860px;
+    margin: 0 auto 22px;
+    background: linear-gradient(180deg, #ffffff 30%, #b8b0a0 120%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero h1 em{
+    font-style: normal;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p{
+    font-size: clamp(1rem, 1.6vw, 1.12rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 34px;
+    font-weight: 400;
+  }
+  .hero-ctas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  /* ---- SECTION TITLE ---- */
+  .section-title{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 56px 0 26px;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+  .section-title::after{
+    content:'';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-title .num{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;height: 28px;
+    border-radius: 8px;
+    background: rgba(201,169,106,0.12);
+    border: 1px solid rgba(201,169,106,0.3);
+    color: var(--accent-2);
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  .section-title .pill-promo{
+    font-size: 0.68rem;
+    color: var(--promo);
+    border: 1px solid rgba(239,68,68,0.4);
+    background: rgba(239,68,68,0.08);
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- PRICING CARDS ---- */
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    align-items: stretch;
+  }
+  .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 26px 28px;
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+    border: 1px solid var(--border);
+    transition: .4s cubic-bezier(.4,0,.2,1);
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .card::before{
+    content:'';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(160deg, rgba(255,255,255,0.14), transparent 40%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: .7;
+  }
+  .card:hover{
+    transform: translateY(-6px);
+    border-color: var(--border-strong);
+    box-shadow: 0 30px 60px -24px rgba(0,0,0,0.7);
+  }
+  .card.selected{
+    border-color: rgba(201,169,106,0.55);
+    background: linear-gradient(165deg, rgba(201,169,106,0.14), rgba(201,169,106,0.03) 55%, rgba(255,255,255,0.02));
+    box-shadow: 0 0 0 1px rgba(201,169,106,0.15), 0 30px 70px -30px var(--accent-glow);
+  }
+  .card.selected::after{
+    content:'';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent-2), var(--accent));
+    border-radius: var(--radius) 0 0 var(--radius);
+  }
+
+  .badge{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: var(--font-display);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    padding: 6px 11px;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px -4px rgba(239,68,68,0.5);
+  }
+
+  .plan-icon{
+    width: 44px;height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    margin-bottom: 18px;
+    color: var(--accent-2);
+  }
+  .plan-icon svg{width: 22px;height: 22px;fill: currentColor;}
+  .selected .plan-icon{
+    background: rgba(201,169,106,0.15);
+    border-color: rgba(201,169,106,0.3);
+  }
+
+  .plan-name{
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .plan-desc{
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    line-height: 1.5;
+    min-height: 36px;
+  }
+  .price-row{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .price{
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    font-family: var(--font-display);
+  }
+  .price .currency{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    align-self: flex-start;
+    margin-top: 5px;
+  }
+  .price .amount{
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--text);
+  }
+  .selected .price .amount{
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .price .period{
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 2px;
+  }
+  .old-price{
+    font-size: 13px;
+    color: #71717a;
+    text-decoration: line-through;
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  .divider{
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 18px;
+  }
+
+  .features{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .features li{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #cfcfd4;
+    line-height: 1.45;
+  }
+  .features li svg{
+    width: 16px;height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    fill: var(--accent);
+  }
+  .selected .features li svg{ fill: var(--accent-2); }
+
+  /* ---- CARD INNER SLIDER (Flex) ---- */
+  .card-inner-slider{
+    display: none;
+    margin-top: 4px;
+    margin-bottom: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(201,169,106,0.2);
+  }
+  .card.selected .card-inner-slider{
+    display: block;
+    animation: fadeIn 0.4s ease forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .slider-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.88rem;
+  }
+  .slider-header .val{
+    color: var(--accent-2);
+    font-weight: 700;
+  }
+  .slider-info{
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 8px;
+    display: block;
+  }
+  .slider-info strong{color: var(--accent-2);}
+
+  input[type=range]{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    margin: 6px 0;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    cursor: pointer;
+    margin-top: -9px;
+    box-shadow: 0 0 12px var(--accent-glow);
+    transition: transform 0.1s;
+  }
+  input[type=range]::-webkit-slider-thumb:active{ transform: scale(1.2); }
+  input[type=range]::-webkit-slider-runnable-track{
+    width: 100%;
+    height: 5px;
+    background: #3f3f46;
+    border-radius: 3px;
+  }
+  input[type=range]::-moz-range-thumb{
+    height: 22px;
+    width: 22px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    cursor: pointer;
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+  input[type=range]::-moz-range-track{
+    width: 100%;
+    height: 5px;
+    background: #3f3f46;
+    border-radius: 3px;
+  }
+
+  /* ---- CUSTOMIZER ---- */
+  .customizer{
+    background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-top: 12px;
+  }
+  .option-group{
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .option-group:last-child{
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .option-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .option-title{
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .option-desc{
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .price-tag{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--font-display);
+  }
+  .price-tag .old{
+    font-size: 0.7rem;
+    text-decoration: line-through;
+    color: #71717a;
+    font-weight: 600;
+  }
+  .price-tag .new{
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--accent-2);
+  }
+
+  /* ---- STEPPER ---- */
+  .stepper{
+    display: inline-flex;
+    align-items: center;
+    background: var(--surface-elevated);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .stepper button{
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1.4rem;
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+  }
+  .stepper button:hover{ background: rgba(255,255,255,0.06); color: var(--accent-2); }
+  .stepper button:active{ background: rgba(201,169,106,0.15); }
+  .stepper input{
+    background: transparent;
+    border: none;
+    color: var(--accent-2);
+    text-align: center;
+    width: 60px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    pointer-events: none;
+  }
+
+  /* ---- TOGGLE SWITCH ---- */
+  .toggle-switch{
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+  .toggle-switch input{ opacity: 0; width: 0; height: 0; }
+  .slider-toggle{
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: var(--surface-elevated);
+    border: 1px solid var(--border);
+    transition: .35s;
+    border-radius: 34px;
+  }
+  .slider-toggle:before{
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    top: 3px;
+    background-color: var(--text-muted);
+    transition: .35s;
+    border-radius: 50%;
+  }
+  input:checked + .slider-toggle{
+    background-color: rgba(201,169,106,0.2);
+    border-color: var(--accent);
+  }
+  input:checked + .slider-toggle:before{
+    transform: translateX(24px);
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ---- VIDEO CONFIG ---- */
+  .slider-container{
+    background: rgba(0,0,0,0.3);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 14px;
+    border: 1px solid var(--border);
+  }
+  .sub-option{
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .discount-badge{
+    background: rgba(74,222,128,0.15);
+    color: var(--success);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+
+  /* ---- QUOTE SUMMARY ---- */
+  .quote-summary{
+    background: linear-gradient(160deg, rgba(201,169,106,0.08), rgba(255,255,255,0.02));
+    border: 1px dashed rgba(201,169,106,0.4);
+    border-radius: var(--radius);
+    padding: 26px;
+    margin-top: 28px;
+  }
+  .quote-summary h3{
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--accent-2);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .quote-list{
+    list-style: none;
+    margin-bottom: 14px;
+  }
+  .quote-list li{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.86rem;
+    color: var(--text);
+    margin-bottom: 9px;
+    line-height: 1.4;
+  }
+  .quote-list li span:last-child{
+    font-weight: 700;
+    font-family: var(--font-display);
+    white-space: nowrap;
+  }
+  .quote-list li .sub{ color: var(--accent-2); padding-left: 14px; }
+  .quote-total-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent-2);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  /* ---- CTA BAND ---- */
+  .cta-band{
+    margin: 56px 0 70px;
+    padding: 52px 40px;
+    border-radius: 26px;
+    background:
+      radial-gradient(ellipse 80% 120% at 50% -20%, rgba(201,169,106,0.18), transparent 60%),
+      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band h2{
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+  .cta-band p{
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    font-size: 15px;
+  }
+  .cta-band .hero-ctas{justify-content:center;}
+
+  /* ---- FLOATING ACTION ---- */
+  .floating-action{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(10,10,12,0.92);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-top: 1px solid var(--border-strong);
+    padding: 14px 24px;
+  }
+  .floating-inner{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .total-price{ display: flex; flex-direction: column; }
+  .total-label{
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    font-family: var(--font-display);
+  }
+  .total-value{
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent-2);
+    line-height: 1.1;
+  }
+  .btn-floating{
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+
+  /* ---- FOOTER ---- */
+  footer{
+    border-top: 1px solid var(--border);
+    padding: 56px 0 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-grid{
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 44px;
+  }
+  .footer-brand .brand{margin-bottom: 16px;}
+  .footer-brand p{
+    color: var(--text-muted);
+    font-size: 13.5px;
+    max-width: 300px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .footer-socials{ display: flex; gap: 10px; }
+  .footer-socials a{
+    width: 40px;height: 40px;
+    border-radius: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: .28s ease;
+    text-decoration: none;
+  }
+  .footer-socials a:hover{
+    color: var(--accent-2);
+    border-color: rgba(201,169,106,0.35);
+    background: rgba(201,169,106,0.08);
+    transform: translateY(-3px);
+  }
+  .footer-socials svg{width:18px;height:18px;fill:currentColor;}
+
+  .footer-col h4{
+    font-family: var(--font-display);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .footer-col ul{ list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a{
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-col a:hover{ color: var(--accent-2); transform: translateX(2px); }
+  .footer-col a svg{ width:14px;height:14px;fill:currentColor;opacity:.7; }
+
+  .footer-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: #71717a;
+  }
+  .footer-bottom a{ color: #71717a; text-decoration: none; transition: .2s; }
+  .footer-bottom a:hover{ color: var(--accent-2); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px){
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-brand{ grid-column: 1 / -1; }
+  }
+  @media (max-width: 768px){
+    .nav-socials-desktop{ display: none; }
+    .nav-cta-desktop{ display: none; }
+    .menu-toggle{ display: inline-flex; }
+    .hero{ padding: 52px 0 28px; }
+    .grid{ gap: 16px; }
+    .card{ padding: 26px 22px 24px; }
+    .cta-band{ padding: 40px 24px; margin: 44px 0 56px; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom{ flex-direction: column; text-align: center; }
+    .customizer{ padding: 22px; }
+    .quote-summary{ padding: 22px; }
+    .floating-action{ padding: 12px 18px; }
+    .total-value{ font-size: 1.35rem; }
+    .btn-floating{ padding: 12px 20px; font-size: 0.88rem; }
+    body{ padding-bottom: 110px; }
+  }
+  @media (max-width: 480px){
+    .wrap{ padding: 0 18px; }
+    .nav-inner{ height: 66px; }
+    .brand img{ height: 38px; }
+    .price .amount{ font-size: 34px; }
+    .hero-ctas .btn{ flex: 1 1 100%; }
+    .floating-inner{ gap: 10px; }
+    .total-label{ font-size: 0.62rem; }
+    .btn-floating{ padding: 12px 16px; font-size: 0.82rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#" class="brand" aria-label="Página inicial">
+        <img src="logo.jpg" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="brand-fallback" aria-hidden="true">CC</div>
+        <span class="brand-name">Concept <span>Collective</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <nav class="nav-socials nav-socials-desktop" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/conceptcollective" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+          <a href="https://www.facebook.com/conceptcontents" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://olhardelobo.wixsite.com/concept" aria-label="Portfólio" title="Portfólio"><svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z"/></svg></a>
+          <a href="https://conceptcollective.github.io/servico.html" aria-label="Serviços" title="Serviços"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 16.9 5.7 21.4 8 14 2 9.4h7.6z"/></svg></a>
+          <a href="https://calendly.com/conceptcollective" aria-label="Calendly" title="Calendly"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg></a>
+          <a href="https://wa.me/5561994326848?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20ensaios%20fotogr%C3%A1ficos" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.85 9.85 0 0 0-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.94 1.38-.5.06-1.14.09-1.84-.12-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.5-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.15-.29.3-.12.6.17.28.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.45.3.14.47.12.64-.07.18-.2.74-.86.94-1.15.2-.3.4-.24.66-.15.27.1 1.7.8 1.98.95.3.15.5.22.57.34.07.13.07.73-.17 1.4z"/></svg></a>
+          <a href="https://conceptcollective.github.io/eventos.html" aria-label="Eventos Fotografados" title="Eventos Fotografados"><svg viewBox="0 0 24 24"><path d="M20 7h-3.17L15 5H9L7.17 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 11a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+        </nav>
+        <a href="#pacotes" class="btn btn-primary nav-cta-desktop">
+          Ver Pacotes
+          <svg viewBox="0 0 24 24"><path d="M8.6 16.6L13.2 12 8.6 7.4 10 6l6 6-6 6z"/></svg>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://www.instagram.com/conceptcollective"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>Instagram</a>
+    <a href="https://www.facebook.com/conceptcontents"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>Facebook</a>
+    <a href="https://olhardelobo.wixsite.com/concept"><svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z"/></svg>Portfólio</a>
+    <a href="https://conceptcollective.github.io/servico.html"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 16.9 5.7 21.4 8 14 2 9.4h7.6z"/></svg>Serviços</a>
+    <a href="https://calendly.com/conceptcollective"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>Calendly</a>
+    <a href="https://wa.me/5561994326848?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20ensaios%20fotogr%C3%A1ficos"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.85 9.85 0 0 0-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.94 1.38-.5.06-1.14.09-1.84-.12-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.5-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.15-.29.3-.12.6.17.28.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.45.3.14.47.12.64-.07.18-.2.74-.86.94-1.15.2-.3.4-.24.66-.15.27.1 1.7.8 1.98.95.3.15.5.22.57.34.07.13.07.73-.17 1.4z"/></svg>WhatsApp</a>
+    <a href="https://conceptcollective.github.io/eventos.html"><svg viewBox="0 0 24 24"><path d="M20 7h-3.17L15 5H9L7.17 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 11a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>Eventos Fotografados</a>
+    <a href="#pacotes" class="mm-cta">Ver Pacotes</a>
+  </div>
+</header>
+
+<div class="promo-banner">🔥 Promoção de Final de Ano — 50% OFF em todos os pacotes 🔥</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="eyebrow">Ensaios Fotográficos Profissionais</div>
+    <h1>Momentos que merecem ser <em>eternizados</em> com arte e precisão.</h1>
+    <p>Monte seu ensaio sob medida: escolha o pacote, ajuste a quantidade de fotos e adicione vídeo. Tudo com 50% OFF por tempo limitado.</p>
+    <div class="hero-ctas">
+      <a href="#pacotes" class="btn btn-primary">
+        Explorar Pacotes
+        <svg viewBox="0 0 24 24"><path d="M8.6 16.6L13.2 12 8.6 7.4 10 6l6 6-6 6z"/></svg>
+      </a>
+      <a href="#personalizacao" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+        Personalizar Ensaio
+      </a>
+    </div>
+  </section>
+
+  <!-- PACOTES -->
+  <section class="wrap" id="pacotes">
+    <h2 class="section-title"><span class="num">1</span> Escolha o Estilo do Ensaio</h2>
+
+    <div class="grid">
+
+      <!-- FLEX -->
+      <article class="card selected" id="card-pacote-1" onclick="selecionarPacote(1)" role="button" tabindex="0" aria-pressed="true">
+        <span class="badge">50% OFF</span>
+        <div class="plan-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+        </div>
+        <h3 class="plan-name">Ensaio Flex</h3>
+        <p class="plan-desc">Pague a sessão e escolha a quantidade exata de fotos.</p>
+        <div class="price-row">
+          <div class="price">
+            <span class="currency">R$</span>
+            <span class="amount">75</span>
+            <span class="period">/ sessão</span>
+          </div>
+          <span class="old-price">R$ 150</span>
+        </div>
+        <div class="divider"></div>
+        <ul class="features">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>1 hora de ensaio</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Escolha a quantidade de fotos abaixo</li>
+        </ul>
+
+        <div class="slider-container card-inner-slider" onclick="event.stopPropagation();">
+          <div class="slider-header">
+            <span id="labelFotosFlex">10 fotos inclusas</span>
+            <span class="val" id="precoFotosFlex">R$ 100,00</span>
+          </div>
+          <input type="range" id="sliderFlex" min="5" max="50" step="1" value="10" oninput="atualizarFotosFlex(this.value)" aria-label="Quantidade de fotos do pacote Flex">
+          <span class="slider-info">De <del>R$ 20</del> por <strong>R$ 10,00</strong> cada foto base.</span>
+        </div>
+      </article>
+
+      <!-- ESSENCIAL -->
+      <article class="card" id="card-pacote-2" onclick="selecionarPacote(2)" role="button" tabindex="0" aria-pressed="false">
+        <span class="badge">50% OFF</span>
+        <div class="plan-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 16.9 5.7 21.4 8 14 2 9.4h7.6z"/></svg>
+        </div>
+        <h3 class="plan-name">Ensaio Essencial</h3>
+        <p class="plan-desc">Ideal para atualizar o feed com alta qualidade.</p>
+        <div class="price-row">
+          <div class="price">
+            <span class="currency">R$</span>
+            <span class="amount">225</span>
+          </div>
+          <span class="old-price">R$ 450</span>
+        </div>
+        <div class="divider"></div>
+        <ul class="features">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Até 1h de ensaio</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>15 fotos editadas inclusas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Entrega online</li>
+        </ul>
+      </article>
+
+      <!-- PREMIUM -->
+      <article class="card" id="card-pacote-3" onclick="selecionarPacote(3)" role="button" tabindex="0" aria-pressed="false">
+        <span class="badge">50% OFF</span>
+        <div class="plan-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20 7h-3.17L15 5H9L7.17 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-8 11a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        </div>
+        <h3 class="plan-name">Ensaio Premium</h3>
+        <p class="plan-desc">Mais tempo, mais looks e variedade de cenários.</p>
+        <div class="price-row">
+          <div class="price">
+            <span class="currency">R$</span>
+            <span class="amount">375</span>
+          </div>
+          <span class="old-price">R$ 750</span>
+        </div>
+        <div class="divider"></div>
+        <ul class="features">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Até 2h</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>30 fotos editadas inclusas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Arquivos originais inclusos</li>
+        </ul>
+      </article>
+
+      <!-- CINEMATIC -->
+      <article class="card" id="card-pacote-4" onclick="selecionarPacote(4)" role="button" tabindex="0" aria-pressed="false">
+        <span class="badge">50% OFF</span>
+        <div class="plan-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+        </div>
+        <h3 class="plan-name">Ensaio Cinematic</h3>
+        <p class="plan-desc">A experiência completa e definitiva.</p>
+        <div class="price-row">
+          <div class="price">
+            <span class="currency">R$</span>
+            <span class="amount">600</span>
+          </div>
+          <span class="old-price">R$ 1.200</span>
+        </div>
+        <div class="divider"></div>
+        <ul class="features">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Até 4h (looks ilimitados)</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>60 fotos editadas inclusas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Direção artística conceitual com lista de poses sugeridas</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PERSONALIZAÇÃO -->
+  <section class="wrap" id="personalizacao">
+    <h2 class="section-title">
+      <span class="num">2</span> Personalização
+      <span class="pill-promo">Descontos temporários: metade do preço</span>
+    </h2>
+
+    <div class="customizer">
+
+      <!-- Fotos Extras -->
+      <div class="option-group">
+        <div class="option-header">
+          <span class="option-title">Fotos Extras Avulsas</span>
+          <div class="price-tag">
+            <span class="old">R$ 25,00</span>
+            <span class="new">R$ 12,50 / un</span>
+          </div>
+        </div>
+        <p class="option-desc">Adicione imagens tratadas avulsas ao pacote escolhido.</p>
+        <div class="stepper">
+          <button type="button" onclick="alterarFotosExtras(-1)" aria-label="Remover foto extra">−</button>
+          <input type="text" id="qtdFotosExtras" value="0" readonly aria-label="Quantidade de fotos extras">
+          <button type="button" onclick="alterarFotosExtras(1)" aria-label="Adicionar foto extra">+</button>
+        </div>
+      </div>
+
+      <!-- Vídeo -->
+      <div class="option-group">
+        <div class="option-header">
+          <div>
+            <span class="option-title">Captação em Vídeo (Reels / Clipes)</span>
+            <p class="option-desc" style="margin-bottom:0;">Cobertura em vídeo no ensaio. Precificação decrescente por duração.</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="checkFilmagem" onchange="toggleFilmagem(this)">
+            <span class="slider-toggle"></span>
+          </label>
+        </div>
+
+        <div id="video-config" class="slider-container hidden" style="animation: fadeIn 0.4s;">
+          <div class="slider-header">
+            <span>Tempo de Captação: <span class="val" id="labelTempoVideo">30 segundos</span></span>
+            <span class="val" id="precoVideoCalc">R$ 0,00</span>
+          </div>
+          <input type="range" id="sliderVideo" min="10" max="600" step="10" value="30" oninput="atualizarTempoVideo(this.value)" aria-label="Duração do vídeo em segundos">
+          <span class="slider-info" id="infoDescontoVideo">Média de R$ 5,83/segundo <span class="discount-badge">Desconto Extra</span></span>
+
+          <div class="sub-option">
+            <div>
+              <span class="option-title" style="font-size:0.92rem;">
+                Incluir Edição Final <span class="badge" style="position:static; padding:3px 8px; font-size:9px;">NOVO</span>
+              </span>
+              <p class="option-desc" style="margin-bottom:0; margin-top:4px; font-size:0.72rem;">
+                Cortes, transições, efeitos e colorização profissional.<br>
+                <span style="color:var(--accent-2);font-weight:600;">+ R$ 60,00 por minuto de vídeo.</span>
+              </p>
+            </div>
+            <label class="toggle-switch" style="transform:scale(0.9);transform-origin:right;">
+              <input type="checkbox" id="checkEdicaoVideo" onchange="toggleEdicaoVideo(this)">
+              <span class="slider-toggle"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESUMO -->
+    <div class="quote-summary">
+      <h3>🧾 Resumo do Orçamento</h3>
+      <ul class="quote-list" id="quoteList"></ul>
+      <div class="quote-total-line">
+        <span>Total Estimado</span>
+        <span id="quoteTotalValue">R$ 0,00</span>
+      </div>
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="cta-band">
+      <h2>Pronto para criar imagens inesquecíveis?</h2>
+      <p>Revise seu orçamento acima e finalize pelo WhatsApp. Respondemos em minutos.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="enviarWhatsApp()">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.85 9.85 0 0 0-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.94 1.38-.5.06-1.14.09-1.84-.12-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.5-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.15-.29.3-.12.6.17.28.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.45.3.14.47.12.64-.07.18-.2.74-.86.94-1.15.2-.3.4-.24.66-.15.27.1 1.7.8 1.98.95.3.15.5.22.57.34.07.13.07.73-.17 1.4z"/></svg>
+          Enviar Orçamento no WhatsApp
+        </button>
+        <a href="https://calendly.com/conceptcollective" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>
+          Agendar via Calendly
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand" aria-label="Página inicial">
+          <img src="logo.jpg" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="brand-fallback" aria-hidden="true">CC</div>
+          <span class="brand-name">Concept <span>Collective</span></span>
+        </a>
+        <p>Fotografia autoral com direção artística, edição profissional e entrega em alta resolução. Transformamos momentos em memórias visuais.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/conceptcollective" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+          <a href="https://www.facebook.com/conceptcontents" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://wa.me/5561994326848?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20ensaios%20fotogr%C3%A1ficos" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.85 9.85 0 0 0-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.94 1.38-.5.06-1.14.09-1.84-.12-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.5-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.15-.29.3-.12.6.17.28.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.45.3.14.47.12.64-.07.18-.2.74-.86.94-1.15.2-.3.4-.24.66-.15.27.1 1.7.8 1.98.95.3.15.5.22.57.34.07.13.07.73-.17 1.4z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="https://olhardelobo.wixsite.com/concept">Portfólio</a></li>
+          <li><a href="https://conceptcollective.github.io/servico.html">Serviços</a></li>
+          <li><a href="#pacotes">Pacotes &amp; Preços</a></li>
+          <li><a href="https://conceptcollective.github.io/eventos.html">Eventos Fotografados</a></li>
+          <li><a href="https://wa.me/5561994326848?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20ensaios%20fotogr%C3%A1ficos">Entre em Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato &amp; Links</h4>
+        <ul>
+          <li><a href="https://calendly.com/conceptcollective"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>Calendly</a></li>
+          <li><a href="https://wa.me/5561994326848?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20ensaios%20fotogr%C3%A1ficos"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.85 9.85 0 0 0-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.94 1.38-.5.06-1.14.09-1.84-.12-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.5-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.15-.29.3-.12.6.17.28.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.45.3.14.47.12.64-.07.18-.2.74-.86.94-1.15.2-.3.4-.24.66-.15.27.1 1.7.8 1.98.95.3.15.5.22.57.34.07.13.07.73-.17 1.4z"/></svg>WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/conceptcollective"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>Instagram</a></li>
+          <li><a href="https://www.facebook.com/conceptcontents"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Concept Collective. Todos os direitos reservados.</span>
+      <span><a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING ACTION ============ -->
+<div class="floating-action">
+  <div class="floating-inner">
+    <div class="total-price">
+      <span class="total-label">Total Promocional</span>
+      <span class="total-value" id="displayTotal">R$ 0,00</span>
+    </div>
+    <button class="btn btn-primary btn-floating" onclick="enviarWhatsApp()">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.85 9.85 0 0 0-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.32-1.94 1.38-.5.06-1.14.09-1.84-.12-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.58.82 2 .9 2.14.07.15.12.32.02.5-.1.2-.15.32-.3.5-.14.17-.3.38-.43.51-.14.15-.29.3-.12.6.17.28.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.45.3.14.47.12.64-.07.18-.2.74-.86.94-1.15.2-.3.4-.24.66-.15.27.1 1.7.8 1.98.95.3.15.5.22.57.34.07.13.07.73-.17 1.4z"/></svg>
+      Agendar 50% OFF
+    </button>
+  </div>
+</div>
+
+<script>
+  // ===== CONFIG =====
+  const PRECOS = {
+    pacotes: {
+      1: { nome: "Ensaio Flex", base: 75, orig: 150 },
+      2: { nome: "Ensaio Essencial", base: 225, orig: 450 },
+      3: { nome: "Ensaio Premium", base: 375, orig: 750 },
+      4: { nome: "Ensaio Cinematic", base: 600, orig: 1200 }
+    },
+    fotoFlex: 10,
+    fotoExtra: 12.5,
+    edicaoVideoPorMinuto: 60
+  };
+
+  const state = {
+    pacoteAtivo: 1,
+    fotosFlexSelecionadas: 10,
+    fotosExtras: 0,
+    incluirVideo: false,
+    segundosVideo: 30,
+    incluirEdicaoVideo: false
+  };
+
+  // ===== PRECIFICAÇÃO VÍDEO (decrescente) =====
+  function calcularPrecoCaptacaoVideo(segundos) {
+    let total = 0, s = segundos;
+    if (s > 0) { let q = Math.min(s, 10); total += q * 7.5; s -= q; }
+    if (s > 0) { let q = Math.min(s, 50); total += q * 5;   s -= q; }
+    if (s > 0) { let q = Math.min(s, 60); total += q * 3.5; s -= q; }
+    if (s > 0) { let q = Math.min(s, 480); total += q * 2;  s -= q; }
+    return total;
+  }
+
+  function calcularPrecoEdicaoVideo(segundos) {
+    return (segundos / 60) * PRECOS.edicaoVideoPorMinuto;
+  }
+
+  function formatarTempoTexto(segundos) {
+    const m = Math.floor(segundos / 60);
+    const s = segundos % 60;
+    if (m === 0) return `${s} seg`;
+    if (s === 0) return m === 1 ? `1 min` : `${m} min`;
+    return `${m}m ${s}s`;
+  }
+
+  function formatarMoeda(v) {
+    return `R$ ${v.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+  }
+
+  // ===== UI HANDLERS =====
+  function selecionarPacote(id) {
+    state.pacoteAtivo = id;
+    document.querySelectorAll('.card').forEach(c => {
+      c.classList.remove('selected');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    const card = document.getElementById(`card-pacote-${id}`);
+    card.classList.add('selected');
+    card.setAttribute('aria-pressed', 'true');
+    atualizarTotal();
+  }
+
+  function atualizarFotosFlex(valor) {
+    state.fotosFlexSelecionadas = parseInt(valor);
+    document.getElementById('labelFotosFlex').innerText = `${state.fotosFlexSelecionadas} fotos inclusas`;
+    document.getElementById('precoFotosFlex').innerText = formatarMoeda(state.fotosFlexSelecionadas * PRECOS.fotoFlex);
+    atualizarTotal();
+  }
+
+  function alterarFotosExtras(delta) {
+    let n = state.fotosExtras + delta;
+    if (n < 0) n = 0;
+    if (n > 100) n = 100;
+    state.fotosExtras = n;
+    document.getElementById('qtdFotosExtras').value = n;
+    atualizarTotal();
+  }
+
+  function toggleFilmagem(checkbox) {
+    state.incluirVideo = checkbox.checked;
+    const cfg = document.getElementById('video-config');
+    if (state.incluirVideo) {
+      cfg.classList.remove('hidden');
+      atualizarTempoVideo(state.segundosVideo);
+    } else {
+      cfg.classList.add('hidden');
+    }
+    atualizarTotal();
+  }
+
+  function toggleEdicaoVideo(checkbox) {
+    state.incluirEdicaoVideo = checkbox.checked;
+    atualizarTempoVideo(state.segundosVideo);
+    atualizarTotal();
+  }
+
+  function atualizarTempoVideo(valor) {
+    state.segundosVideo = parseInt(valor);
+    document.getElementById('labelTempoVideo').innerText = formatarTempoTexto(state.segundosVideo);
+
+    const custoCaptura = calcularPrecoCaptacaoVideo(state.segundosVideo);
+    const custoEdicao = state.incluirEdicaoVideo ? calcularPrecoEdicaoVideo(state.segundosVideo) : 0;
+    document.getElementById('precoVideoCalc').innerText = formatarMoeda(custoCaptura + custoEdicao);
+
+    const media = (custoCaptura / state.segundosVideo).toFixed(2).replace('.', ',');
+    let info = `Média de captação: R$ ${media}/segundo`;
+    if (state.segundosVideo > 30) info += ` <span class="discount-badge">Desconto Extra</span>`;
+    document.getElementById('infoDescontoVideo').innerHTML = info;
+
+    atualizarTotal();
+  }
+
+  // ===== TOTAL / RESUMO =====
+  function atualizarTotal() {
+    let total = 0;
+    const pct = PRECOS.pacotes[state.pacoteAtivo];
+    const list = document.getElementById('quoteList');
+    list.innerHTML = '';
+
+    // Pacote base
+    total += pct.base;
+    if (state.pacoteAtivo === 1) {
+      list.innerHTML += `<li><span>${pct.nome} (Taxa de Sessão)</span><span>${formatarMoeda(pct.base)}</span></li>`;
+      const custoFotos = state.fotosFlexSelecionadas * PRECOS.fotoFlex;
+      total += custoFotos;
+      list.innerHTML += `<li><span class="sub">↳ Fotos Inclusas (${state.fotosFlexSelecionadas} un)</span><span>${formatarMoeda(custoFotos)}</span></li>`;
+    } else {
+      list.innerHTML += `<li><span>${pct.nome}</span><span>${formatarMoeda(pct.base)}</span></li>`;
+    }
+
+    // Fotos extras
+    if (state.fotosExtras > 0) {
+      const custo = state.fotosExtras * PRECOS.fotoExtra;
+      total += custo;
+      list.innerHTML += `<li><span>Fotos Extras (${state.fotosExtras} un)</span><span>${formatarMoeda(custo)}</span></li>`;
+    }
+
+    // Vídeo
+    if (state.incluirVideo) {
+      const custoCap = calcularPrecoCaptacaoVideo(state.segundosVideo);
+      total += custoCap;
+      list.innerHTML += `<li><span>Captação de Vídeo (${formatarTempoTexto(state.segundosVideo)})</span><span>${formatarMoeda(custoCap)}</span></li>`;
+      if (state.incluirEdicaoVideo) {
+        const custoEd = calcularPrecoEdicaoVideo(state.segundosVideo);
+        total += custoEd;
+        list.innerHTML += `<li><span class="sub">↳ Edição Final do Vídeo</span><span>${formatarMoeda(custoEd)}</span></li>`;
+      }
+    }
+
+    document.getElementById('displayTotal').innerText = formatarMoeda(total);
+    document.getElementById('quoteTotalValue').innerText = formatarMoeda(total);
+  }
+
+  // ===== WHATSAPP =====
+  function enviarWhatsApp() {
+    const pct = PRECOS.pacotes[state.pacoteAtivo];
+    const totalFinal = document.getElementById('displayTotal').innerText;
+
+    let msg = `Olá! Vim pelo site e quero aproveitar a Promoção 50% OFF para meu ensaio!\n\n`;
+    msg += `*MEU ORÇAMENTO:*\n`;
+
+    if (state.pacoteAtivo === 1) {
+      msg += `↳ ${pct.nome} (Sessão): R$ 75,00\n`;
+      msg += `↳ Fotos Base (${state.fotosFlexSelecionadas} un): ${formatarMoeda(state.fotosFlexSelecionadas * PRECOS.fotoFlex)}\n`;
+    } else {
+      msg += `↳ ${pct.nome}: ${formatarMoeda(pct.base)}\n`;
+    }
+
+    if (state.fotosExtras > 0) {
+      msg += `↳ Fotos Extras (${state.fotosExtras} un): ${formatarMoeda(state.fotosExtras * PRECOS.fotoExtra)}\n`;
+    }
+
+    if (state.incluirVideo) {
+      msg += `↳ Captação de Vídeo (${formatarTempoTexto(state.segundosVideo)}): ${formatarMoeda(calcularPrecoCaptacaoVideo(state.segundosVideo))}\n`;
+      if (state.incluirEdicaoVideo) {
+        msg += `↳ Edição Final do Vídeo: ${formatarMoeda(calcularPrecoEdicaoVideo(state.segundosVideo))}\n`;
+      }
+    }
+
+    msg += `\n*VALOR TOTAL PROMOCIONAL: ${totalFinal}*\n\n`;
+    msg += `Quais datas vocês têm disponíveis?`;
+
+    const telefone = "5561994326848"; // <-- Substitua pelo seu número
+    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  }
+
+  // ===== INIT =====
+  atualizarTotal();
+
+  // ===== MENU MOBILE =====
+  (function(){
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
